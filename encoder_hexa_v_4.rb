@@ -1,14 +1,3 @@
-=begin
-###DOCUMENTATION###
-enc -> string that gets split into characters then encoded
-input_array_index -> number used in enc to navigate through array
-character -> only in defined methods, variable for enc[n]
-
-csv_array -> table
-csv_array_x -> navigates in first dimension
-csv_array_y -> navigates in second dimension
-=end
-
 require 'CSV'
 $csv_array = CSV.open("data/char_list.csv").read()
 $input_array_index = 0

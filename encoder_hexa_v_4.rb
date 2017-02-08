@@ -6,10 +6,6 @@ $csv_array_x = 0
 $encoded = Array.new
 enc = gets.chomp.split("")
 
-=begin
-CSV class imported, table imported, standard variables set, user input required
-=end
-
 def letter (character)
 	case character
 		when $csv_array[$csv_array_y][$csv_array_x]

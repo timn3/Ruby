@@ -1,4 +1,4 @@
-require 'CSV'
+require 'csv'
 $csv_array = CSV.open("data/char_list.csv").read()
 $input_array_index = 0
 $csv_array_y = 0

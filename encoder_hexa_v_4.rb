@@ -1,5 +1,5 @@
 require 'csv'
-csv_array = CSV.open("data/char_list.csv").read()
+encoding_array = CSV.open("data/char_list.csv").read()
 
 letters_to_encode = gets.chomp.split("")
 
@@ -14,7 +14,7 @@ end
 encoded_letters = Array.new
 
 letters_to_encode.each do |letter|
-  encoded_letters << encode(letter, csv_array)
+  encoded_letters << encode(letter, encoding_array)
 end
 
 output = encoded_letters.join(" ")

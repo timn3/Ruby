@@ -1,26 +1,22 @@
 require 'csv'
-$csv_array = CSV.open("data/char_list.csv").read()
-$input_array_index = 0
-$csv_array_y = 0
-$csv_array_x = 0
-$encoded = Array.new
-enc = gets.chomp.split("")
+csv_array = CSV.open("data/char_list.csv").read()
 
-def letter (character)
-  case character
-  when $csv_array[$csv_array_y][$csv_array_x]
-    $encoded << $csv_array[$csv_array_y][$csv_array_x += 1]
-    $input_array_index += 1
-    $csv_array_y = 0
-    $csv_array_x = 0
-  else
-    $csv_array_y += 1
-  end
+letters_to_encode = gets.chomp.split("")
+
+def encode(letter, csv_array)
+  letter_and_encodings_array = csv_array.select { |l_a_e| letter == l_a_e[0] }
+  letter_and_encoding = letter_and_encodings_array.first
+  encoding = letter_and_encoding[1]
+
+  encoding
 end
 
-while $input_array_index < enc.length
-  letter enc[$input_array_index]
+encoded_letters = Array.new
+
+letters_to_encode.each do |letter|
+  encoded_letters << encode(letter, csv_array)
 end
-output = $encoded.join(" ")
+
+output = encoded_letters.join(" ")
 File.open("data/output.txt", "w") {|f| f.write output}
 puts output

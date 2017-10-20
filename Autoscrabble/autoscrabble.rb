@@ -1,13 +1,16 @@
-
 if File.exist?("kuerzelliste.txt")
-  @file = File.read("kuerzelliste.txt").split(" ")
+  # Bevor die Datei geöffnet wird überprüfen, ob es sie überhaupt gibt
+  @file = File.read("kuerzelliste.txt").split(" ") # Datei einlesen
   input = gets.chomp().capitalize!.upcase!
+  # Input aufnehmen und in Großbuchstaben speichern.
+  # der Umweg über "capitalize", da bereits großgeschriebene Wörter sonst einen Error geben.
   @output = Array.new()
-  @alphabet = ("A".."Z").to_a
 
   def check_input(input)
     for n in 3.downto(0)
+      # Die Maximallänge des vorderen Kennzeichenteils ist 3
       chunk = input.slice(0..n)
+      # Chunk wird jedes mal neu definiert
       if @file.include?(chunk)
         @output << input.slice!(0..n)
         if input.length >= 2
@@ -15,19 +18,20 @@ if File.exist?("kuerzelliste.txt")
         else
           @output << input.slice!(0)
         end
-        print @output
-        puts " out"
-        break
+        break # break aus der for-schleife, da abgeschlossen
       end
     end
-    @output << "nP" if @output[-1].nil? || input.length.between?(1,2)
+    @output << "nP" if @output[-1].nil? || input.length == 1
+    # fügt "notPossible" in das Array, wenn das letzte Element eines Arrays nil ist (kommt durch pushen eines leeren elements) oder nur 1 lang ist.
     @output << rand(0..9999).to_s
+    # ein Kennzeichen hat eine bis zu 4 stellige Zahlenfolge
   end
 
   while input.length != 0
-    puts input.length
+    # solange noch ein Buchstabe im input ist wird folgendes durchgeführt
     check_input(input)
     break if @output.include?("nP")
+    # break aus der while-schleife, Falls Zeichenfolge nicht möglich
   end
   if @output.include?("nP")
     puts "Impossible"

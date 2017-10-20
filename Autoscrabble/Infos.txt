@@ -1,0 +1,8 @@
+https://www.bwinf.de/fileadmin/user_upload/BwInf/2017/36/1._Runde/Aufgaben/BWINF_36_Aufgaben_WEB.pdf
+https://www.bwinf.de/fileadmin/user_upload/autoscrabble.txt
+https://www.bwinf.de/fileadmin/user_upload/kuerzelliste.txt
+
+Oben ist das Aufgabenblatt, darunter die Wörter die wir überprüfen sollen und unten ist die Liste mit allen in Deutschland möglichen Kürzeln.
+Meine Idee war, solange die Länge des inputs größer als null ist, werden die ersten 3 Buchstaben des inputs genommen und mit dem kennzeichen file verglichen.
+Findet das Programm eine Übereinstimmung werden die Buchstaben des Kürzels abgezogen und noch die zwei darauffolgenden. Ist das Wort zu kurz dafür wird nur 1 Buchstabe abgezogen.
+Problem hierbei ist, dass mein Programm anzeigt, dass eine Buchstabenkombination nicht möglich ist, weil sie auf diese Weise nicht erfolgreich zugeordnet werden kann.
